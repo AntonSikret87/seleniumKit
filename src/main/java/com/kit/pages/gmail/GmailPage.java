@@ -38,4 +38,8 @@ public class GmailPage {
         nextButtonPassword = webDriver.findElement(nextBtnPassLocator);
         nextButtonPassword.click();
     }
+    public String getActualUrl() {
+        String actualURL = webDriver.getCurrentUrl();
+        return actualURL;
+    }
 }
