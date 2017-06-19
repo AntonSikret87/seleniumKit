@@ -7,18 +7,13 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by AntonKa on 6/9/2017.
  */
-public class StylusPage {
+public class StylusPage extends StylusBasePage{
 
-    private WebDriver webDriver;
     private WebElement searchField;
     By searchFieldLocator = By.name("q");
 
     public StylusPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
-
-    public void open(String url){
-        webDriver.get(url);
+        super(webDriver);
     }
 
     public void fillAndSubmitSearchData(String searchText) {

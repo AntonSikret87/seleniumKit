@@ -7,13 +7,13 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by AntonKa on 6/9/2017.
  */
-public class GoogleSearchResultPage {
-    private WebDriver webDriver;
+public class GoogleSearchResultPage extends GoogleBasePage{
+
     By linkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a");
     private WebElement firstLink;
 
     public GoogleSearchResultPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     public String getTextLink() {

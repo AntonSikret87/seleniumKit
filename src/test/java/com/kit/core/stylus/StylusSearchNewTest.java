@@ -12,16 +12,16 @@ import static org.testng.Assert.assertTrue;
  */
 public class StylusSearchNewTest extends WebDriverTestBase{
     private String baseUrl = "http://stylus.com.ua";
-    String searchText = "Sony Xperia Z2";
-    String expectedURL = "https://stylus.ua/smartfony/sony-xperia-z2-black-198717.html";
+    private final static String SEARCH_TEXT = "Sony Xperia Z2";
+    private String expectedURL = "https://stylus.ua/smartfony/sony-xperia-z2-black-198717.html";
 
     @Test
     public void searchStylusTest(){
         StylusPage stylusPage = new StylusPage(webDriver);
         stylusPage.open(baseUrl);
-        stylusPage.fillAndSubmitSearchData(searchText);
+        stylusPage.fillAndSubmitSearchData(SEARCH_TEXT);
         StylusSearchResultPage stylusSearchResultPage = new StylusSearchResultPage(webDriver);
-        assertTrue(stylusSearchResultPage.getTextLink().contains(searchText));
+        assertTrue(stylusSearchResultPage.getTextLink().contains(SEARCH_TEXT));
         stylusSearchResultPage.clickLink();
         assertEquals(expectedURL,stylusSearchResultPage.getActualUrl());
 

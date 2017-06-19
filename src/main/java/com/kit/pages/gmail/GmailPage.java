@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by AntonKa on 6/10/2017.
  */
-public class GmailPage {
-    private WebDriver webDriver;
+public class GmailPage extends GmailBasePage {
+
 
     By emailFieldLocator = By.id("identifierId");
     private WebElement emailField;
@@ -21,11 +21,7 @@ public class GmailPage {
 
 
     public GmailPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
-    }
-
-    public void open(String url) {
-        webDriver.get(url);
+        super(webDriver);
     }
 
     public void login(String email, String pass) {

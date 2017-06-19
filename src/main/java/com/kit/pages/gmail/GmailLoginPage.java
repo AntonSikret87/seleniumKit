@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by AntonKa on 6/10/2017.
  */
-public class GmailLoginPage {
-    private WebDriver webDriver;
+public class GmailLoginPage extends GmailBasePage {
+
     By myIconLocator = By.xpath("//*[@class='gb_b gb_db gb_R']");
     private WebElement myNameOnThePage;
 
@@ -16,7 +16,7 @@ public class GmailLoginPage {
     private WebElement incomingLink;
 
     public GmailLoginPage(WebDriver webDriver) {
-        this.webDriver = webDriver;
+        super(webDriver);
     }
 
     public String getTitleIcon() {
@@ -28,5 +28,4 @@ public class GmailLoginPage {
         incomingLink = webDriver.findElement(incomingMailsLocator);
         return incomingLink.isDisplayed();
     }
-
 }
