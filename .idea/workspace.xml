@@ -1,24 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae9b8ba5-58c3-4f05-9deb-44e8ddf96d48" name="Default" comment="a">
+    <list default="true" id="ae9b8ba5-58c3-4f05-9deb-44e8ddf96d48" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SeleniumProjectKIt.iml" afterPath="$PROJECT_DIR$/SeleniumProjectKIt.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/core/WebDriverTestBase.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/core/WebDriverTestBase.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/pages/google/GoogleBasePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/pages/google/GoogleBasePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/pages/google/GoogleSearchPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/pages/google/GoogleSearchPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/EditSearchOnSRPPage.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/EditSearchOnSRPPage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/ThomasCookBasePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/ThomasCookBasePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/ThomasCookHomePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/ThomasCookHomePage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/kit/util/WebDriverUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/kit/util/WebDriverUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/gmail/GmailLoginTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/gmail/GmailLoginTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/google/GoogleSearchNewTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/google/GoogleSearchNewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/stylus/StylusSearchNewTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/stylus/StylusSearchNewTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/stylus/StylusSearchOldTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/stylus/StylusSearchOldTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/DefaultSearchTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/DefaultSearchTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/EditSearchOnSRPTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/EditSearchOnSRPTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/SearchByCriteriaTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/kit/core/thomascook/SearchByCriteriaTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -98,7 +82,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestListener.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TestListener.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/TestListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="185">
@@ -134,7 +118,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ThomasCookHomePage.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ThomasCookHomePage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/ThomasCookHomePage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-72">
@@ -150,7 +134,7 @@
       <file leaf-file-name="WebDriverTestBase.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/WebDriverTestBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="-4">
               <caret line="40" column="76" lean-forward="false" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1047,7 +1031,14 @@
       <option name="project" value="LOCAL" />
       <updated>1498218008242</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="alure lib  added wait added , tests disabled(only google enable)">
+      <created>1498237940493</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1498237940493</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1121,7 +1112,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="cycle for from and to fields" />
-    <option name="LAST_COMMIT_MESSAGE" value="cycle for from and to fields" />
+    <MESSAGE value="alure lib  added wait added , tests disabled(only google enable)" />
+    <option name="LAST_COMMIT_MESSAGE" value="alure lib  added wait added , tests disabled(only google enable)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1423,16 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/TestListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/util/WebDriverUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-289">
@@ -1471,16 +1453,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/WebDriverTestBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="40" column="76" lean-forward="false" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/pages/thomascook/SearchResultDefaultPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1510,6 +1482,26 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2042#2043#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/WebDriverTestBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="40" column="76" lean-forward="false" selection-start-line="40" selection-start-column="76" selection-end-line="40" selection-end-column="76" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/kit/core/TestListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
