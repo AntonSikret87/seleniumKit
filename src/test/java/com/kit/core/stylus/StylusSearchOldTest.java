@@ -16,20 +16,12 @@ import static org.testng.Assert.assertTrue;
  */
 public class StylusSearchOldTest {
     private WebDriver webDriver;
-    private String baseUrl;
+    private String baseUrl = "http://stylus.com.ua";
 
-    @BeforeClass
-    public void setUp() throws Exception {
-        System.setProperty("webdriver.chrome.driver", "src\\main\\resources\\chromedriver.exe");
-        webDriver = new ChromeDriver();
-        baseUrl = "http://stylus.com.ua";
-        webDriver.get(baseUrl + "/");
-        webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-    }
 
-    @Test
-    public void searchTest(){
+
+    @Test(enabled = false)
+    public void searchTest() {
         String searchText = "Sony Xperia Z2";
         WebElement searchField = webDriver.findElement(By.name("q"));
         searchField.sendKeys(searchText);
@@ -40,11 +32,6 @@ public class StylusSearchOldTest {
         String expectedURL = "https://stylus.ua/smartfony/sony-xperia-z2-black-198717.html";
         String actualURL = webDriver.getCurrentUrl();
         assertTrue(actualURL.equals(expectedURL));
-        assertEquals(expectedURL,actualURL);
-    }
-    @AfterClass
-    public void tearDown() throws Exception {
-        webDriver.quit();
-
+        assertEquals(expectedURL, actualURL);
     }
 }

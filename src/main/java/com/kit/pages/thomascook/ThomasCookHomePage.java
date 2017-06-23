@@ -1,26 +1,17 @@
 package com.kit.pages.thomascook;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.awt.*;
-import java.awt.event.KeyEvent;
 import java.util.List;
 
-import static org.openqa.selenium.Keys.ARROW_DOWN;
 
 /**
  * Created by AntonKa on 6/14/2017.
  */
 public class ThomasCookHomePage extends ThomasCookBasePage{
-    private Actions actions;
 
     private String lableFromField = "Any Airport";
     private String lableToField = "Any destination";
@@ -39,7 +30,10 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
     private WebElement closeCookiesBtn;
     By dropDownListAdultLocator = By.cssSelector("#SearchbarRooms-adults1");
     private WebElement dropDownAdultBtn;
-
+    String optionXpathLocator = "//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '%s')]";
+    private WebElement firstItemInFromDropLocator(String text) {
+        return webDriverUtil.waitForExpectedCondition(ExpectedConditions.elementToBeClickable(By.xpath(String.format(optionXpathLocator, text))));
+    }
 
     public ThomasCookHomePage(WebDriver webDriver) {
         super(webDriver);
@@ -50,36 +44,45 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
         searchButton.click();
     }
 
+    public void clickOnNeededItemInDropDownField(String enteredVal){
+        firstItemInFromDropLocator(enteredVal).click();
+    }
+
     public void flyFrom(String fromValue) {
-        actions= new Actions(webDriver);
         fieldsFromAndToList = webDriver.findElements(fieldsLocators);
         //WebElement fieldFrom = fieldsFromAndToList.get(1);
         for(WebElement fieldNeededFrom: fieldsFromAndToList) {
-            System.out.println(fieldNeededFrom.getText());
+            //System.out.println(fieldNeededFrom.getText());
             if (fieldNeededFrom.getText().contains(lableFromField)){
-                actions.click(fieldNeededFrom).sendKeys(fromValue).perform();
+                webDriverUtil.actions.click(fieldNeededFrom).sendKeys(fromValue).perform();
             }
         }
-        //System.out.println("Fromd field " + fieldFrom.getText());
-       // actions.click(fieldFrom).sendKeys(fromValue).perform();
-        String locator = "//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '%s')]";
-        By firstItemInFromDropLocator = By.xpath(String.format(locator, fromValue));
-        WebDriverWait w = new WebDriverWait(webDriver, 15);
-        WebElement firstInlistItem = w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
-        firstInlistItem.click();
+        clickOnNeededItemInDropDownField(fromValue);
+//        String optionXpathLocator = "//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '%s')]";
+//        By firstItemInFromDropLocator = By.xpath(String.format(optionXpathLocator, fromValue));
+//        WebDriverWait w = new WebDriverWait(webDriver, 15);
+//        WebElement firstInlistItem = w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
+//        firstInlistItem.click();
     }
 
     public void flyTo(String toValue) {
-        actions= new Actions(webDriver);
         fieldsFromAndToList = webDriver.findElements(fieldsLocators);
-        WebElement fieldTo = fieldsFromAndToList.get(0);
+        //WebElement fieldTo = fieldsFromAndToList.get(0);
         //System.out.println("Fromd field " + fieldTo.getText());
-        actions.click(fieldTo).sendKeys(toValue);
-        actions.build().perform();
-        By firstItemInToDropLocator = By.xpath("//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '"+toValue+"')]");
-        WebDriverWait w = new WebDriverWait(webDriver, 20);
-        WebElement firstInlistItem = w.until(ExpectedConditions.elementToBeClickable(firstItemInToDropLocator));
-        firstInlistItem.click();
+        for(WebElement fieldNeededTo: fieldsFromAndToList) {
+            //System.out.println("ToFIELD: "+fieldNeededTo.getText());
+            if (fieldNeededTo.getText().contains(lableToField)){
+                webDriverUtil.actions.click(fieldNeededTo).sendKeys(toValue).perform();
+            }
+        }
+        clickOnNeededItemInDropDownField(toValue);
+
+
+//        webDriverUtil.actions.click(fieldTo).sendKeys(toValue).perform();
+//        By firstItemInToDropLocator = By.xpath("//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '"+toValue+"')]");
+//        WebDriverWait w = new WebDriverWait(webDriver, 20);
+//        WebElement firstInlistItem = w.until(ExpectedConditions.elementToBeClickable(firstItemInToDropLocator));
+//        firstInlistItem.click();
     }
 
     public void selectDuration(String itemInList){
@@ -99,9 +102,7 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
     }
 
     public void closePopup() {
-        WebDriverWait wait = new WebDriverWait(webDriver, 20);
-        closePopup = webDriver.findElement(closePopUpLocator);
-        wait.until(ExpectedConditions.presenceOfElementLocated(closePopUpLocator));
+        closePopup = webDriverUtil.waitForExpectedCondition(ExpectedConditions.presenceOfElementLocated(closePopUpLocator));
         closePopup.click();
     }
 
@@ -114,7 +115,6 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
         closePopup();
         closeCookiesDialog();
     }
-
 }
 
 

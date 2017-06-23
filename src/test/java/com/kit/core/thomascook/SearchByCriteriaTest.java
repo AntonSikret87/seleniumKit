@@ -4,10 +4,6 @@ import com.kit.core.WebDriverTestBase;
 import com.kit.pages.thomascook.SearchResultWithCriteriaPage;
 import com.kit.pages.thomascook.ThomasCookHomePage;
 import org.testng.annotations.Test;
-
-import java.awt.*;
-
-import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -21,7 +17,7 @@ public class SearchByCriteriaTest extends WebDriverTestBase {
     private String adultsCount = "2";
     private String expectedAdultsAndRooms = "Room 1: 2 Adults\n" + "Room 2: 2 Adults";
 
-    @Test
+    @Test(enabled = false)
     public void searchWithCriteriaTest() {
         ThomasCookHomePage thomasCookHomePage = new ThomasCookHomePage(webDriver);
         thomasCookHomePage.open(baseUrl);

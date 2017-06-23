@@ -19,7 +19,7 @@ public class GmailLoginTest extends WebDriverTestBase {
     private String titleIcon = "Аккаунт Google: test testovich  \n" + "(testkitauto@gmail.com)";
 
 
-    @Test
+    @Test(enabled = false)
     public void searchTest(){
         GmailPage gmailPage = new GmailPage(webDriver);
         gmailPage.open(baseUrl);

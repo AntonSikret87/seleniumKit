@@ -6,8 +6,9 @@ import io.github.bonigarcia.wdm.FirefoxDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+
 
 
 import java.util.concurrent.TimeUnit;
@@ -20,7 +21,7 @@ public class WebDriverTestBase {
     private String browser =  System.getProperty("browser");
 
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp() throws Exception {
         //Manually
 //        String pathToFileWindows = "src\\main\\resources\\chromedriver.exe";
@@ -29,8 +30,15 @@ public class WebDriverTestBase {
 //        ChromeDriverManager.getInstance().setup();
 //        webDriver = new ChromeDriver();
         setBrowser();
+        setWebDriverSettings();
+
+    }
+
+    private void setWebDriverSettings() {
         webDriver.manage().window().maximize();
-        webDriver.manage().timeouts().implicitlyWait(35, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+        webDriver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
     }
 
     public void setBrowser(){
@@ -47,7 +55,7 @@ public class WebDriverTestBase {
         }
     }
 
-    @AfterSuite
+    @AfterClass
     public void tearDown() throws Exception {
         //close browser
         webDriver.close();

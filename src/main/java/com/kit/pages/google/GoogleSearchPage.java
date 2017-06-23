@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import ru.yandex.qatools.allure.annotations.Step;
 
 /**
  * Created by AntonKa on 6/9/2017.
@@ -19,6 +20,7 @@ public class GoogleSearchPage extends GoogleBasePage{
         super(webDriver);
     }
 
+    @Step("fill {0} and search")
     public  void fillAndSubmitSearchData(String searchText){
         searchField = webDriverUtil.waitForExpectedCondition(
                 ExpectedConditions.visibilityOfElementLocated(searchFieldLocator));

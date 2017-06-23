@@ -4,7 +4,6 @@ import com.kit.core.WebDriverTestBase;
 import com.kit.pages.thomascook.EditSearchOnSRPPage;
 import com.kit.pages.thomascook.SearchResultWithCriteriaPage;
 import com.kit.pages.thomascook.ThomasCookHomePage;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import static org.testng.Assert.assertTrue;
 
@@ -29,7 +28,7 @@ public class EditSearchOnSRPTest extends WebDriverTestBase{
 //
 //    }
 
-    @Test
+    @Test(enabled = false)
     public void editSearchonSRPTest(){
         //Preconditions
         ThomasCookHomePage thomasCookHomePage = new ThomasCookHomePage(webDriver);

@@ -1,21 +1,20 @@
 package com.kit.pages.thomascook;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+
 
 /**
  * Created by AntonKa on 6/16/2017.
  */
 public class EditSearchOnSRPPage extends ThomasCookBasePage{
-    private Actions actions;
 
     By editBtnLocator = By.id("SearchbarReadonly-edit");
     private WebElement editBtn;
@@ -56,10 +55,14 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
     }
 
     public void clickEditButton() {
-        WebDriverWait w = new WebDriverWait(webDriver, 30);
+        WebDriverWait w = new WebDriverWait(webDriver, 40);
         editBtn = w.until(ExpectedConditions.elementToBeClickable(editBtnLocator));
-        //editBtn = webDriver.findElement(editBtnLocator);
-        editBtn.click();
+
+//        editBtn = webDriver.findElement(editBtnLocator);
+//        editBtn = webDriverUtil.waitForExpectedCondition(ExpectedConditions.elementToBeClickable(editBtnLocator));
+        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
+        executor.executeScript("arguments[0].click()", editBtn);
+
     }
 
     public void selectChildsInDropDown(String infantAge, String childAge){
@@ -71,11 +74,11 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
         droplist2.selectByVisibleText(childAge);
         applyBtn = webDriver.findElement(applyLocator);
         applyBtn.click();
-
     }
 
     public void selectChildlnRoom(String adultAmount){
         dropDownAmountChilds = webDriver.findElement(dropDownListAmountChildsLocator);
+       // dropDownAmountChilds = webDriverUtil.waitForExpectedCondition(ExpectedConditions.elementToBeClickable(dropDownListAmountChildsLocator));
         Select droplist = new Select(dropDownAmountChilds);
         droplist.selectByVisibleText(adultAmount);
     }
@@ -87,32 +90,32 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
     }
 
     public void flyFrom(String fromValue) {
-        actions= new Actions(webDriver);
         airplainBtn = webDriver.findElement(airplainBtnLocator);
         airplainBtn.click();
         LondonGrinwichChkbx = webDriver.findElement(londonGrinwichCheckboxLocator);
         LondonGrinwichChkbx.click();
         fieldsFromAndToList = webDriver.findElements(fieldsLocators);
         WebElement fieldFrom = fieldsFromAndToList.get(1);
-        actions.click(fieldFrom).sendKeys(fromValue);
-        actions.build().perform();
+        webDriverUtil.actions.click(fieldFrom).sendKeys(fromValue).perform();
         By firstItemInFromDropLocator = By.xpath("//li[contains(@class, 'list-item needsclick') and contains(., '"+fromValue+"')]");
-        WebDriverWait w = new WebDriverWait(webDriver, 15);
-        WebElement firstInlistItemFromField =  w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
+
+        WebElement firstInlistItemFromField =webDriverUtil.waitForExpectedCondition(
+                ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
+//        WebDriverWait w = new WebDriverWait(webDriver, 15);
+//        WebElement firstInlistItemFromField =  w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
         firstInlistItemFromField.click();
     }
 
     public void flyTo(String toValue) {
-        actions= new Actions(webDriver);
         toField = webDriver.findElement(toFieldLocator);
-        actions.click(toField).sendKeys(toValue);
-        actions.build().perform();
+        webDriverUtil.actions.click(toField).sendKeys(toValue).perform();
         By firstItemInToDropLocator = By.xpath("//li[text()[contains(.,'"+toValue+"')]]");
-        WebDriverWait w = new WebDriverWait(webDriver, 15);
-        WebElement firstInlistItemToField = w.until(ExpectedConditions.elementToBeClickable(firstItemInToDropLocator));
+        WebElement firstInlistItemToField  =webDriverUtil.waitForExpectedCondition(
+                ExpectedConditions.elementToBeClickable(firstItemInToDropLocator));
+//        WebDriverWait w = new WebDriverWait(webDriver, 15);
+//        WebElement firstInlistItemToField = w.until(ExpectedConditions.elementToBeClickable(firstItemInToDropLocator));
         firstInlistItemToField.click();
         //actions.click(firstInlistItemToField).build().perform();
-
     }
 
     public void clickSearchBtn() {

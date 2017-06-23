@@ -10,9 +10,11 @@ public class ThomasCookBasePage {
     protected WebDriver webDriver;
     protected WebDriverUtil webDriverUtil;
 
+
     public ThomasCookBasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
         webDriverUtil=new WebDriverUtil(webDriver);
+
     }
 
     public void open(String url){

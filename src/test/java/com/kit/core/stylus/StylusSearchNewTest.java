@@ -15,7 +15,7 @@ public class StylusSearchNewTest extends WebDriverTestBase{
     private final static String SEARCH_TEXT = "Sony Xperia Z2";
     private String expectedURL = "https://stylus.ua/smartfony/sony-xperia-z2-black-198717.html";
 
-    @Test
+    @Test(enabled = false)
     public void searchStylusTest(){
         StylusPage stylusPage = new StylusPage(webDriver);
         stylusPage.open(baseUrl);
