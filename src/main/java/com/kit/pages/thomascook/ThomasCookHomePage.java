@@ -22,6 +22,9 @@ import static org.openqa.selenium.Keys.ARROW_DOWN;
 public class ThomasCookHomePage extends ThomasCookBasePage{
     private Actions actions;
 
+    private String lableFromField = "Any Airport";
+    private String lableToField = "Any destination";
+
     By searchLocator = By.id("SearchbarForm-submitBtn");
     private WebElement searchButton;
     By closePopUpLocator = By.className("deliver-component-CloseButton-times");
@@ -50,11 +53,17 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
     public void flyFrom(String fromValue) {
         actions= new Actions(webDriver);
         fieldsFromAndToList = webDriver.findElements(fieldsLocators);
-        WebElement fieldFrom = fieldsFromAndToList.get(1);
+        //WebElement fieldFrom = fieldsFromAndToList.get(1);
+        for(WebElement fieldNeededFrom: fieldsFromAndToList) {
+            System.out.println(fieldNeededFrom.getText());
+            if (fieldNeededFrom.getText().contains(lableFromField)){
+                actions.click(fieldNeededFrom).sendKeys(fromValue).perform();
+            }
+        }
         //System.out.println("Fromd field " + fieldFrom.getText());
-        actions.click(fieldFrom).sendKeys(fromValue);
-        actions.build().perform();
-        By firstItemInFromDropLocator = By.xpath("//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '"+fromValue+"')]");
+       // actions.click(fieldFrom).sendKeys(fromValue).perform();
+        String locator = "//li[contains(@class, 'list-item needsclick ng-binding ng-scope') and contains(., '%s')]";
+        By firstItemInFromDropLocator = By.xpath(String.format(locator, fromValue));
         WebDriverWait w = new WebDriverWait(webDriver, 15);
         WebElement firstInlistItem = w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
         firstInlistItem.click();
