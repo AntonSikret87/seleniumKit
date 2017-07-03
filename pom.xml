@@ -11,7 +11,7 @@
     <properties>
         <selenium.version>3.4.0</selenium.version>
         <testng.version>6.11</testng.version>
-        <webdrivermanager.version>1.6.2</webdrivermanager.version>
+        <webdrivermanager.version>1.7.0</webdrivermanager.version>
         <allure.version>1.5.2</allure.version>
         <jetty-maven-plugin>9.2.10.v20150310</jetty-maven-plugin>
         <aspectj.version>1.8.5</aspectj.version>

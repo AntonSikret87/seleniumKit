@@ -16,6 +16,7 @@ public class GoogleSearchPage extends GoogleBasePage{
     By searchFieldLocator = By.name("q");
     private WebElement searchField;
 
+
     public GoogleSearchPage(WebDriver webDriver) {
         super(webDriver);
     }
@@ -28,4 +29,7 @@ public class GoogleSearchPage extends GoogleBasePage{
         searchField.sendKeys(searchText);
         searchField.submit();
     }
+
+
+
 }

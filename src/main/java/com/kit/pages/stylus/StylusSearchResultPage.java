@@ -9,7 +9,11 @@ import org.openqa.selenium.WebElement;
  */
 public class StylusSearchResultPage extends StylusBasePage {
 
-    By linkLocator = By.xpath(".//*[@id='search-list']//span[text() ='Смартфон Sony Xperia Z2 Black']");
+//    String xpathLocatorSearchItem = ".//*[@id='search-list']//span[text() ='%s']";
+//    String nameStringSearchItem = "Смартфон Sony Xperia Z2 Black";
+
+
+    By linkLocator = By.xpath(".//*[@id='search-list']/ul/li[5]/a/span");//String.format(xpathLocatorSearchItem, nameStringSearchItem
     private WebElement firstLink;
 
     public StylusSearchResultPage(WebDriver webDriver) {

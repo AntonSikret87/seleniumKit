@@ -9,8 +9,14 @@ import org.openqa.selenium.WebElement;
  */
 public class GoogleSearchResultPage extends GoogleBasePage{
 
-    By linkLocator = By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a");
+    By linkLocator = By.xpath(".//*[@id='rso']/div/div/div[1]/div/div/h3/a");
     private WebElement firstLink;
+
+//    By clickIconUserLocator = By.id("gbw");
+//    private WebElement iconUserElement;
+//
+//    //.//*[@id='']/div/div/div[2]/div[4]/div[1]/a/span
+
 
     public GoogleSearchResultPage(WebDriver webDriver) {
         super(webDriver);
@@ -19,5 +25,9 @@ public class GoogleSearchResultPage extends GoogleBasePage{
     public String getTextLink() {
         firstLink = webDriver.findElement(linkLocator);
         return firstLink.getText();
+    }
+
+    public  void clickLink(){
+        webDriverUtil.jsClickByIdOrName("gb_70", "id");
     }
 }

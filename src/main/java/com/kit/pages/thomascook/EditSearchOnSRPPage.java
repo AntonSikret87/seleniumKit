@@ -55,13 +55,14 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
     }
 
     public void clickEditButton() {
-        WebDriverWait w = new WebDriverWait(webDriver, 40);
-        editBtn = w.until(ExpectedConditions.elementToBeClickable(editBtnLocator));
-
+//        WebDriverWait w = new WebDriverWait(webDriver, 40);
+//        editBtn = w.until(ExpectedConditions.elementToBeClickable(editBtnLocator));
+        editBtn = webDriver.findElement(editBtnLocator);
+        webDriverUtil.actions.moveToElement(editBtn);
+        webDriverUtil.jsClickByIdOrName("SearchbarReadonly-edit", "id");
 //        editBtn = webDriver.findElement(editBtnLocator);
-//        editBtn = webDriverUtil.waitForExpectedCondition(ExpectedConditions.elementToBeClickable(editBtnLocator));
-        JavascriptExecutor executor = (JavascriptExecutor)webDriver;
-        executor.executeScript("arguments[0].click()", editBtn);
+//        editBtn.click();
+
 
     }
 
@@ -89,6 +90,14 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
         dropDurationlist.selectByVisibleText(itemInList);
     }
 
+    public void clickOnNeededItemInDropDownField(String enteredVal){
+        firstItemInFromDropLocator(enteredVal).click();
+    }
+    String optionXpathLocator = "//li[contains(@class, 'list-item needsclick') and contains(., %s')]";
+    private WebElement firstItemInFromDropLocator(String text) {
+        return webDriverUtil.waitForExpectedCondition(ExpectedConditions.elementToBeClickable(By.xpath(String.format(optionXpathLocator, text))));
+    }
+    private String lableFromField = "London Gatwick";
     public void flyFrom(String fromValue) {
         airplainBtn = webDriver.findElement(airplainBtnLocator);
         airplainBtn.click();
@@ -104,6 +113,18 @@ public class EditSearchOnSRPPage extends ThomasCookBasePage{
 //        WebDriverWait w = new WebDriverWait(webDriver, 15);
 //        WebElement firstInlistItemFromField =  w.until(ExpectedConditions.elementToBeClickable(firstItemInFromDropLocator));
         firstInlistItemFromField.click();
+
+
+        fieldsFromAndToList = webDriver.findElements(fieldsLocators);
+        //WebElement fieldTo = fieldsFromAndToList.get(0);
+        //System.out.println("Fromd field " + fieldTo.getText());
+        for(WebElement fieldNeededTo: fieldsFromAndToList) {
+            //System.out.println("ToFIELD: "+fieldNeededTo.getText());
+            if (fieldNeededTo.getText().contains(lableFromField)){
+                webDriverUtil.actions.click(fieldNeededTo).sendKeys(fromValue).perform();
+            }
+        }
+        clickOnNeededItemInDropDownField(fromValue);
     }
 
     public void flyTo(String toValue) {

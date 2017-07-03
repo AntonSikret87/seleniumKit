@@ -3,6 +3,7 @@ package com.kit.pages.gmail;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 /**
  * Created by AntonKa on 6/10/2017.
@@ -20,6 +21,8 @@ public class GmailLoginPage extends GmailBasePage {
     }
 
     public String getTitleIcon() {
+//        myNameOnThePage = webDriverUtil.waitForExpectedCondition(
+//                ExpectedConditions.visibilityOfAllElementsLocatedBy(myIconLocator));
         myNameOnThePage = webDriver.findElement(myIconLocator);
         return myNameOnThePage.getAttribute("title");
     }

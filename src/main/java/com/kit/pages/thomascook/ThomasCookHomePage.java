@@ -91,6 +91,13 @@ public class ThomasCookHomePage extends ThomasCookBasePage{
         dropDurationlist.selectByVisibleText(itemInList);
     }
 
+    public String getSelectedValue(){
+        dropDownDurationBtn = webDriver.findElement(dropDownListHowLongLocator);
+        Select dropDurationlist = new Select(dropDownDurationBtn);
+        return dropDurationlist.getFirstSelectedOption().getText();
+        //return selectedVal;
+    }
+
     public void addRoom(){
         addRoomBtn = webDriver.findElement(addRoomLocator);
         addRoomBtn.click();

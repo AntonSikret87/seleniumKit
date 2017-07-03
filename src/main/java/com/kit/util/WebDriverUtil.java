@@ -1,6 +1,6 @@
 package com.kit.util;
 
-import com.google.common.base.Function;
+
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -19,11 +19,15 @@ public class WebDriverUtil {
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
     public Actions actions;
+    private JavascriptExecutor JSexecutor;
+
+
+    long waitExplicit = Long.parseLong(PropertiesCache.getProperty("wait.explicit"));
 
 
     public WebDriverUtil(WebDriver webDriver) {
         this.webDriver = webDriver;
-        webDriverWait = new WebDriverWait(webDriver, 15);
+        webDriverWait = new WebDriverWait(webDriver, waitExplicit);
         actions = new Actions(webDriver);
     }
 
@@ -31,18 +35,25 @@ public class WebDriverUtil {
         return (WebElement)webDriverWait.until(expectedCondition);
     }
 
-    public void waitForPageLoad() {
-        Wait<WebDriver> wait = new WebDriverWait(webDriver, 40);
-        wait.until(new Function<WebDriver, Boolean>() {
-            public Boolean apply(WebDriver driver) {
-                System.out.println("Current Window State       : "
-                        + String.valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState")));
-                return String
-                        .valueOf(((JavascriptExecutor) driver).executeScript("return document.readyState"))
-                        .equals("complete");
-            }
-        });
+    public void jsClickByElement(WebElement element) {
+        JSexecutor = (JavascriptExecutor) webDriver;
+        JSexecutor.executeScript("arguments[0].click();", element);
     }
+
+    public void jsClickByIdOrName(String locator, String type) {
+        JSexecutor = (JavascriptExecutor) webDriver;
+        switch (type){
+            case "id":{
+                JSexecutor.executeScript("document.getElementById(\"" + locator + "\").click()");
+                break;
+            }
+            case "name":{
+                JSexecutor.executeScript("document.getElementsByName(\"" + locator + "\")[0].click()");
+                break;
+            }
+        }
+    }
+
 
     @Attachment(value = "{0}")
     public byte[] saveScreenshot(String attachName) {

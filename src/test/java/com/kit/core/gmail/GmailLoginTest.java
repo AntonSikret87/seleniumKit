@@ -19,14 +19,15 @@ public class GmailLoginTest extends WebDriverTestBase {
     private String titleIcon = "Аккаунт Google: test testovich  \n" + "(testkitauto@gmail.com)";
 
 
+
     @Test(enabled = false)
-    public void searchTest(){
+    public void gmailTestLogin(){
         GmailPage gmailPage = new GmailPage(webDriver);
         gmailPage.open(baseUrl);
         assertTrue(gmailPage.getActualUrl().equals(baseUrlAfterEnter));
         gmailPage.login(myEmail,myPassword);
         GmailLoginPage gmailLoginPage = new GmailLoginPage(webDriver);
-        assertTrue(gmailLoginPage.getTitleIcon().equals(titleIcon));
         assertTrue(gmailLoginPage.checkIncomingLinkIsDisplayed());
+        assertTrue(gmailLoginPage.getTitleIcon().equals(titleIcon));
     }
 }

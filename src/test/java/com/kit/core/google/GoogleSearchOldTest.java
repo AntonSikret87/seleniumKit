@@ -18,7 +18,7 @@ public class GoogleSearchOldTest extends WebDriverTestBase {
 
     private String baseUrl = "https://www.google.com/";
 
-    @Test
+    @Test(enabled = true)
     public void searchTest(){
         webDriver.get(baseUrl);
         String searchText = "Selenium";
@@ -26,7 +26,7 @@ public class GoogleSearchOldTest extends WebDriverTestBase {
         WebElement searchField = webDriver.findElement(searchFieldLocator);
         searchField.sendKeys(searchText);
         searchField.submit();
-        WebElement firstLink = webDriver.findElement(By.xpath("//*[@id=\"rso\"]/div[2]/div/div[1]/div/div/h3/a"));
+        WebElement firstLink = webDriver.findElement(By.xpath(".//*[@id='rso']/div/div/div[1]/div/div/h3/a"));
         assertTrue(firstLink.getText().contains(searchText));
         List<WebElement> webElementsList = webDriver.findElements(By.cssSelector(".r>a"));
         if(webElementsList.isEmpty()){
