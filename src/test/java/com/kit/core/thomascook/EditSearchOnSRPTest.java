@@ -28,7 +28,7 @@ public class EditSearchOnSRPTest extends WebDriverTestBase{
 //
 //    }
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void editSearchonSRPTest(){
         //Preconditions
         ThomasCookHomePage thomasCookHomePage = new ThomasCookHomePage(webDriver);

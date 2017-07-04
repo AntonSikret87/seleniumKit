@@ -2,8 +2,6 @@ package com.kit.core.spamRemover;
 
 import com.kit.core.WebDriverTestBase;
 import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertTrue;
@@ -14,8 +12,7 @@ import static org.testng.Assert.assertTrue;
 public class dragAndDropTest extends WebDriverTestBase {
     private String baseUrl1 = "https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_draganddrop";
 
-
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void switchIfremeTest() throws Exception {
         webDriver.get(baseUrl1);
         WebElement iFrame = webDriver.findElement(By.id("iframeResult"));
@@ -30,7 +27,6 @@ public class dragAndDropTest extends WebDriverTestBase {
 //                .release()
 //                .build()
 //                .perform();
-
         DragAndDropJS(elementToDragAndDrop,toElement,webDriver );
         WebElement elementAfterDragAndDrop = webDriver.findElement(By.xpath("//div[img[@src ='img_logo.gif']]//child::img"));
         assertTrue(elementAfterDragAndDrop.isDisplayed());

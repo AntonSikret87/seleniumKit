@@ -19,7 +19,7 @@ public class SearchByCriteriaTest extends WebDriverTestBase {
     private String adultsCount = "2";
     private String expectedAdultsAndRooms = "Room 1: 2 Adults\n" + "Room 2: 2 Adults";
 
-    @Test(enabled = true)
+    @Test(enabled = false)
     public void searchWithCriteriaTest() {
         ThomasCookHomePage thomasCookHomePage = new ThomasCookHomePage(webDriver);
         thomasCookHomePage.open(baseUrl);
