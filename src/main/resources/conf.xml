@@ -1,0 +1,22 @@
+<suite name="Parallel Tests" verbose="1" thread-count="4" parallel="tests">
+	<tests>
+	<test name=" Windows + Chrome Test">
+	  		<parameters>
+				<parameter name="platform" value="Windows" />
+		  		<parameter name="browser" value="chrome"/>
+	  		</parameters>
+	     	<classes>
+	      		<class name="com.kit.core.googleTestForHub.GoogleTest" />
+	    	</classes>
+	  	</test>
+		<test name="Windows + FireFox Test">
+			<parameters>
+				<parameter name="platform" value="WIN8_1" />
+				<parameter name="browser" value="firefox" />
+			</parameters>
+			<classes>
+				<class name="com.kit.core.googleTestForHub.GoogleTest" />
+			</classes>
+		</test>
+	</tests>
+</suite>
