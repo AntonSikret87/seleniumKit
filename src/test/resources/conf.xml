@@ -11,7 +11,7 @@
 	  	</test>
 		<test name="Windows + FireFox Test">
 			<parameters>
-				<parameter name="platform" value="WIN8_1" />
+				<parameter name="platform" value="Windows" />
 				<parameter name="browser" value="firefox" />
 			</parameters>
 			<classes>
