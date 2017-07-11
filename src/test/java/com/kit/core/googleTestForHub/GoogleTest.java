@@ -23,12 +23,12 @@ public class GoogleTest {
     private WebDriver driver;
 
     @Parameters({ "platform","browser"})
-    @BeforeTest(alwaysRun=true)
+    @BeforeTest
     public void setup(String platform, String browser) throws MalformedURLException
     {
         DesiredCapabilities caps = new DesiredCapabilities();
         if(platform.equalsIgnoreCase("Windows")) {
-            //caps.setPlatform(Platform.WIN8_1);
+            caps.setPlatform(Platform.WIN8_1);
             caps.setBrowserName(browser);
         }
         driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), caps);
